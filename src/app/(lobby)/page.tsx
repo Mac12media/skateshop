@@ -14,6 +14,7 @@ import { ProductCard } from "@/components/cards/product-card"
 import { StoreCard } from "@/components/cards/store-card"
 import { Icons } from "@/components/icons"
 import { Shell } from "@/components/shells/shell"
+import { NewCard } from "../../components/cards/new-card"
 
 export default async function IndexPage() {
   const someProducts = await db
@@ -85,14 +86,14 @@ export default async function IndexPage() {
         className="mx-auto flex w-full max-w-[64rem] flex-col items-center justify-center gap-4 py-12 text-center md:pt-32"
       >
         {githubStars ? (
-          <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
+          <Link             href="/products"          target="_blank" rel="noreferrer">
             <Badge
               aria-hidden="true"
               className="rounded-md px-3.5 py-1.5"
               variant="secondary"
             >
-              <Icons.gitHub className="mr-2 h-3.5 w-3.5" aria-hidden="true" />
-              {githubStars} stars on GitHub
+              <Icons.shopify className="mr-2 h-3.5 w-3.5" aria-hidden="true" />
+              2,329,758 shopify stores
             </Badge>
             <span className="sr-only">GitHub</span>
           </Link>
@@ -109,8 +110,8 @@ export default async function IndexPage() {
         </Balancer>
         <div className="flex flex-wrap items-center justify-center gap-4">
           <Link href="/products" className={cn(buttonVariants())}>
-            Buy now
-            <span className="sr-only">Buy now</span>
+            Browse
+            <span className="sr-only">Browse</span>
           </Link>
           <Link
             href="/dashboard/stores"
@@ -120,8 +121,8 @@ export default async function IndexPage() {
               })
             )}
           >
-            Sell now
-            <span className="sr-only">Sell now</span>
+            Login
+            <span className="sr-only">Login</span>
           </Link>
         </div>
       </section>
@@ -132,10 +133,10 @@ export default async function IndexPage() {
       >
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
           <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">
-            Categories
+           Stores By Launch Date 
           </h2>
           <Balancer className="max-w-[46rem] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            Find the best skateboarding gears from stores around the world
+          AI Powered E-Commerce Analysis & Data
           </Balancer>
         </div>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -151,17 +152,17 @@ export default async function IndexPage() {
       >
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 overflow-visible text-center">
           <h2 className="font-heading text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">
-            Featured products
+            Featured shops
           </h2>
           <Balancer className="max-w-[46rem] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            Explore products from around the world
+            Explore stores from around the world
           </Balancer>
         </div>
         <div className="flex flex-col space-y-10">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {someProducts.length > 0 ? (
               someProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <NewCard key={product.id} product={product} />
               ))
             ) : (
               <div className="flex h-full flex-col items-center justify-center space-y-1 pt-10">

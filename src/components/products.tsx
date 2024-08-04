@@ -36,7 +36,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { Slider } from "@/components/ui/slider"
-import { ProductCard } from "@/components/cards/product-card"
+import { NewCard } from "@/components/cards/new-card"
 import { MultiSelect } from "@/components/multi-select"
 import { PaginationButton } from "@/components/pagers/pagination-button"
 
@@ -435,7 +435,7 @@ export function Products({
       ) : null}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <NewCard key={product.id} product={product} />
         ))}
       </div>
       {products.length ? (

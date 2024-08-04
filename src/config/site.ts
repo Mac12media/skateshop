@@ -14,7 +14,7 @@ const links = {
 }
 
 export const siteConfig = {
-  name: "Skateshop",
+  name: "ShopHunt",
   description:
     "An open source e-commerce skateshop build with everything new in Next.js 13.",
   url: "https://skateshop.sadmn.com",

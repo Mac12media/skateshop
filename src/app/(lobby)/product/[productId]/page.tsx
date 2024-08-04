@@ -19,6 +19,7 @@ import { AddToCartForm } from "@/components/forms/add-to-cart-form"
 import { Breadcrumbs } from "@/components/pagers/breadcrumbs"
 import { ProductImageCarousel } from "@/components/product-image-carousel"
 import { Shell } from "@/components/shells/shell"
+import { NewCard } from "../../../../components/cards/new-card"
 
 interface ProductPageProps {
   params: {
@@ -158,15 +159,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
       {store && otherProducts.length > 0 ? (
         <div className="overflow-hidden md:pt-6">
           <h2 className="line-clamp-1 flex-1 text-2xl font-bold">
-            More products from {store.name}
+            More stores from {store.name}
           </h2>
           <div className="overflow-x-auto pb-2 pt-6">
             <div className="flex w-fit gap-4">
               {otherProducts.map((product) => (
-                <ProductCard
+                <NewCard
                   key={product.id}
                   product={product}
-                  className="min-w-[260px]"
                 />
               ))}
             </div>

@@ -15,8 +15,8 @@ import { getStoresAction } from "@/app/_actions/store"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
-  title: "Products",
-  description: "Buy products from our stores",
+  title: "Stores",
+  description: "Browse all",
 }
 
 interface ProductsPageProps {
@@ -80,9 +80,9 @@ export default async function ProductsPage({
   return (
     <Shell>
       <PageHeader>
-        <PageHeaderHeading size="sm">Products</PageHeaderHeading>
+        <PageHeaderHeading size="sm">Stores</PageHeaderHeading>
         <PageHeaderDescription size="sm">
-          Buy products from our stores
+         Browse all
         </PageHeaderDescription>
       </PageHeader>
       <Products

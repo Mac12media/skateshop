@@ -9,8 +9,6 @@ export const sortOptions = [
     label: "Date: New to old",
     value: "createdAt.desc",
   },
-  { label: "Price: Low to high", value: "price.asc" },
-  { label: "Price: High to low", value: "price.desc" },
   {
     label: "Alphabetical: A to Z",
     value: "name.asc",
@@ -23,163 +21,254 @@ export const sortOptions = [
 
 export const productCategories = [
   {
-    title: "skateboards",
+    title: "2024",
     image: "/images/skateboard-one.webp",
-    icon: Icons.logo,
+    icon: Icons.shopify,
     subcategories: [
       {
-        title: "Decks",
-        description: "The board itself.",
-        image: "/images/deck-one.webp",
-        slug: "decks",
+        "title": "January",
+        "description": "Month of January 2024",
+        "slug": "january2024"
       },
       {
-        title: "Wheels",
-        description: "The wheels that go on the board.",
-        image: "/images/wheel-one.webp",
-        slug: "wheels",
+        "title": "February",
+        "description": "Month of February 2024",
+        "slug": "february2024"
       },
       {
-        title: "Trucks",
-        description: "The trucks that go on the board.",
-        image: "/images/truck-one.webp",
-        slug: "trucks",
+        "title": "March",
+        "description": "Month of March 2024",
+        "slug": "march2024"
       },
       {
-        title: "Bearings",
-        description: "The bearings that go in the wheels.",
-        image: "/images/bearing-one.webp",
-        slug: "bearings",
+        "title": "April",
+        "description": "Month of April 2024",
+        "slug": "april2024"
       },
       {
-        title: "Griptape",
-        description: "The griptape that goes on the board.",
-        image: "/images/griptape-one.webp",
-        slug: "griptape",
+        "title": "May",
+        "description": "Month of May 2024",
+        "slug": "may2024"
       },
       {
-        title: "Hardware",
-        description: "The hardware that goes on the board.",
-        image: "/images/hardware-one.webp",
-        slug: "hardware",
+        "title": "June",
+        "description": "Month of June 2024",
+        "slug": "june2024"
       },
       {
-        title: "Tools",
-        description: "The tools that go with the board.",
-        image: "/images/tool-one.webp",
-        slug: "tools",
+        "title": "July",
+        "description": "Month of July 2024",
+        "slug": "july2024"
       },
-    ],
+      {
+        "title": "August",
+        "description": "Month of August 2024",
+        "slug": "august2024"
+      },
+     
+    ]
   },
   {
-    title: "clothing",
+    title: "2023",
     image: "/images/clothing-one.webp",
-    icon: Icons.shirt,
+    icon: Icons.shopify,
     subcategories: [
       {
-        title: "T-shirts",
-        description: "Cool and comfy tees for effortless style.",
-        slug: "t-shirts",
+        "title": "January",
+        "description": "Month of January 2023",
+        "slug": "january2023"
       },
       {
-        title: "Hoodies",
-        description: "Cozy up in trendy hoodies.",
-        slug: "hoodies",
+        "title": "February",
+        "description": "Month of February 2023",
+        "slug": "february2023"
       },
       {
-        title: "Pants",
-        description: "Relaxed and stylish pants for everyday wear.",
-        slug: "pants",
+        "title": "March",
+        "description": "Month of March 2023",
+        "slug": "march2023"
       },
       {
-        title: "Shorts",
-        description: "Stay cool with casual and comfortable shorts.",
-        slug: "shorts",
+        "title": "April",
+        "description": "Month of April 2023",
+        "slug": "april2023"
       },
       {
-        title: "Hats",
-        description: "Top off your look with stylish and laid-back hats.",
-        slug: "hats",
+        "title": "May",
+        "description": "Month of May 2023",
+        "slug": "may2023"
       },
-    ],
+      {
+        "title": "June",
+        "description": "Month of June 2023",
+        "slug": "june2023"
+      },
+      {
+        "title": "July",
+        "description": "Month of July 2023",
+        "slug": "july2023"
+      },
+      {
+        "title": "August",
+        "description": "Month of August 2023",
+        "slug": "august2023"
+      },
+      {
+        "title": "September",
+        "description": "Month of September 2023",
+        "slug": "september2023"
+      },
+      {
+        "title": "October",
+        "description": "Month of October 2023",
+        "slug": "october2023"
+      },
+      {
+        "title": "November",
+        "description": "Month of November 2023",
+        "slug": "november2023"
+      },
+      {
+        "title": "December",
+        "description": "Month of December 2023",
+        "slug": "december2023"
+      }
+    ]
   },
   {
-    title: "shoes",
+    title: "2022",
     image: "/images/shoe-one.webp",
-    icon: Icons.footprints,
+    icon: Icons.shopify,
     subcategories: [
       {
-        title: "Low Tops",
-        description: "Rad low tops shoes for a stylish low-profile look.",
-        slug: "low-tops",
+        "title": "January",
+        "description": "Month of January 2022",
+        "slug": "january2022"
       },
       {
-        title: "High Tops",
-        description: "Elevate your style with rad high top shoes.",
-        slug: "high-tops",
+        "title": "February",
+        "description": "Month of February 2022",
+        "slug": "february2022"
       },
       {
-        title: "Slip-ons",
-        description: "Effortless style with rad slip-on shoes.",
-        slug: "slip-ons",
+        "title": "March",
+        "description": "Month of March 2022",
+        "slug": "march2022"
       },
       {
-        title: "Pros",
-        description: "Performance-driven rad shoes for the pros.",
-        slug: "pros",
+        "title": "April",
+        "description": "Month of April 2022",
+        "slug": "april2022"
       },
       {
-        title: "Classics",
-        description: "Timeless style with rad classic shoes.",
-        slug: "classics",
+        "title": "May",
+        "description": "Month of May 2022",
+        "slug": "may2022"
       },
-    ],
+      {
+        "title": "June",
+        "description": "Month of June 2022",
+        "slug": "june2022"
+      },
+      {
+        "title": "July",
+        "description": "Month of July 2022",
+        "slug": "july2022"
+      },
+      {
+        "title": "August",
+        "description": "Month of August 2022",
+        "slug": "august2022"
+      },
+      {
+        "title": "September",
+        "description": "Month of September 2022",
+        "slug": "september2022"
+      },
+      {
+        "title": "October",
+        "description": "Month of October 2022",
+        "slug": "october2022"
+      },
+      {
+        "title": "November",
+        "description": "Month of November 2022",
+        "slug": "november2022"
+      },
+      {
+        "title": "December",
+        "description": "Month of December 2022",
+        "slug": "december2022"
+      }
+    ]
   },
   {
-    title: "accessories",
+    title: "2021",
     image: "/images/backpack-one.webp",
-    icon: MixIcon,
+    icon: Icons.shopify,
     subcategories: [
       {
-        title: "Skate Tools",
-        description:
-          "Essential tools for maintaining your skateboard, all rad.",
-        slug: "skate-tools",
+        "title": "January",
+        "description": "Month of January 2021",
+        "slug": "january2021"
       },
       {
-        title: "Bushings",
-        description: "Upgrade your ride with our rad selection of bushings.",
-        slug: "bushings",
+        "title": "February",
+        "description": "Month of February 2021",
+        "slug": "february2021"
       },
       {
-        title: "Shock & Riser Pads",
-        description:
-          "Enhance your skateboard's performance with rad shock and riser pads.",
-        slug: "shock-riser-pads",
+        "title": "March",
+        "description": "Month of March 2021",
+        "slug": "march2021"
       },
       {
-        title: "Skate Rails",
-        description:
-          "Add creativity and style to your tricks with our rad skate rails.",
-        slug: "skate-rails",
+        "title": "April",
+        "description": "Month of April 2021",
+        "slug": "april2021"
       },
       {
-        title: "Wax",
-        description: "Keep your board gliding smoothly with our rad skate wax.",
-        slug: "wax",
+        "title": "May",
+        "description": "Month of May 2021",
+        "slug": "may2021"
       },
       {
-        title: "Socks",
-        description: "Keep your feet comfy and stylish with our rad socks.",
-        slug: "socks",
+        "title": "June",
+        "description": "Month of June 2021",
+        "slug": "june2021"
       },
       {
-        title: "Backpacks",
-        description: "Carry your gear in style with our rad backpacks.",
-        slug: "backpacks",
+        "title": "July",
+        "description": "Month of July 2021",
+        "slug": "july2021"
       },
-    ],
-  },
+      {
+        "title": "August",
+        "description": "Month of August 2021",
+        "slug": "august2021"
+      },
+      {
+        "title": "September",
+        "description": "Month of September 2021",
+        "slug": "september2021"
+      },
+      {
+        "title": "October",
+        "description": "Month of October 2021",
+        "slug": "october2021"
+      },
+      {
+        "title": "November",
+        "description": "Month of November 2021",
+        "slug": "november2021"
+      },
+      {
+        "title": "December",
+        "description": "Month of December 2021",
+        "slug": "december2021"
+      }
+    ]
+  }  
 ] satisfies Category[]
 
 export const productTags = [

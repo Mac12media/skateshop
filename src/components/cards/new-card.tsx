@@ -16,7 +16,7 @@ import {
 interface ProductCardProps extends React.HTMLAttributes<HTMLDivElement> {
     product: Pick<
       Product,
-      "id" | "name" | "price" | "images" | "category" | "inventory" | "description"
+      "id" | "name" | "price" | "images" | "category" | "inventory" 
     >
     variant?: "default" | "switchable"
     isAddedToCart?: boolean
@@ -57,8 +57,8 @@ interface ProductCardProps extends React.HTMLAttributes<HTMLDivElement> {
         <CardHeader>
           <CardTitle className="line-clamp-1 text-lg">{product.name}</CardTitle>
           <CardDescription className="line-clamp-2">
-            {product.description?.length
-              ? product.description
+            {product.name?.length
+              ? product.name
               : ` ${product.name} `}
           </CardDescription>
         </CardHeader>

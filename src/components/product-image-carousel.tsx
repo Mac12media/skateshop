@@ -104,17 +104,14 @@ export function ProductImageCarousel({
               className="relative aspect-square min-w-0 flex-full pl-4"
               key={index}
             >
-              <Image
+              <img
                 aria-label={`Slide ${index + 1} of ${images.length}`}
                 role="group"
                 key={index}
                 aria-roledescription="slide"
                 src={image.url}
                 alt={image.name}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover"
-                priority={index === 0}
+                className="object-cover bg-white rounded-2xl"
               />
             </div>
           ))}

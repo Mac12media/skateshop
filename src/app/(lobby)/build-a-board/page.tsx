@@ -18,8 +18,8 @@ import { getProductsAction } from "@/app/_actions/product"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
-  title: "Build a Board",
-  description: "Select the components for your board",
+  title: "Advanced Search",
+  description: "Find stores",
 }
 
 interface BuildABoadPageProps {
@@ -59,9 +59,9 @@ export default async function BuildABoardPage({
         id="build-a-board-header"
         aria-labelledby="build-a-board-header-heading"
       >
-        <PageHeaderHeading size="sm">Build a Board</PageHeaderHeading>
+        <PageHeaderHeading size="sm">Advanced Search</PageHeaderHeading>
         <PageHeaderDescription size="sm">
-          Select the components for your board
+          Find Stores
         </PageHeaderDescription>
       </PageHeader>
       <section

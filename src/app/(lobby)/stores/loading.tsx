@@ -12,7 +12,7 @@ export default function StoresLoading() {
       </div>
       <div className="flex flex-col space-y-6">
         <Skeleton className="h-9 w-14" />
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {Array.from({ length: 8 }).map((_, i) => (
             <Card key={i} className="h-full">
               <AspectRatio ratio={21 / 9}>

@@ -69,7 +69,7 @@ export function Products({
 
   // Search params
   const page = searchParams?.get("page") ?? "1"
-  const per_page = searchParams?.get("per_page") ?? "8"
+  const per_page = searchParams?.get("per_page") ?? "20"
   const sort = searchParams?.get("sort") ?? "createdAt.desc"
   const store_ids = searchParams?.get("store_ids")
   const store_page = searchParams?.get("store_page") ?? "1"
@@ -95,8 +95,8 @@ export function Products({
   )
 
   // Price filter
-  const [priceRange, setPriceRange] = React.useState<[number, number]>([0, 500])
-  const debouncedPrice = useDebounce(priceRange, 500)
+  const [priceRange, setPriceRange] = React.useState<[number, number]>([0, 10000])
+  const debouncedPrice = useDebounce(priceRange, 10000)
 
   React.useEffect(() => {
     const [min, max] = debouncedPrice
@@ -188,6 +188,7 @@ export function Products({
 
   return (
     <section className="flex flex-col space-y-6" {...props}>
+      
       <div className="flex items-center space-x-2">
         <Sheet>
           <SheetTrigger asChild>
@@ -203,13 +204,13 @@ export function Products({
             <div className="flex flex-1 flex-col gap-5 overflow-hidden px-1">
               <div className="space-y-4">
                 <h3 className="text-sm font-medium tracking-wide text-foreground">
-                  Price range ($)
+                  Site Visitors
                 </h3>
                 <Slider
                   variant="range"
                   thickness="thin"
-                  defaultValue={[0, 500]}
-                  max={500}
+                  defaultValue={[0, 10000]}
+                  max={10000}
                   step={1}
                   value={priceRange}
                   onValueChange={(value: typeof priceRange) =>
@@ -234,7 +235,7 @@ export function Products({
                     type="number"
                     inputMode="numeric"
                     min={priceRange[0]}
-                    max={500}
+                    max={10000}
                     className="h-9"
                     value={priceRange[1]}
                     onChange={(e) => {
@@ -247,10 +248,10 @@ export function Products({
               {categories?.length ? (
                 <div className="space-y-4">
                   <h3 className="text-sm font-medium tracking-wide text-foreground">
-                    Categories
+                    Years
                   </h3>
                   <MultiSelect
-                    placeholder="Select categories"
+                    placeholder="Select year"
                     selected={selectedCategories}
                     setSelected={setSelectedCategories}
                     options={categories.map((c) => ({
@@ -263,7 +264,7 @@ export function Products({
               {category ? (
                 <div className="space-y-4">
                   <h3 className="text-sm font-medium tracking-wide text-foreground">
-                    Subcategories
+                    Month
                   </h3>
                   <MultiSelect
                     placeholder="Select subcategories"
@@ -427,13 +428,22 @@ export function Products({
       </div>
       {!isPending && !products.length ? (
         <div className="mx-auto flex max-w-xs flex-col space-y-1.5">
-          <h1 className="text-center text-2xl font-bold">No products found</h1>
+          <h1 className="text-center text-2xl font-bold">No stores found</h1>
           <p className="text-center text-muted-foreground">
-            Try changing your filters, or check back later for new products
+            Try changing your filters, or check back later for new stores
           </p>
         </div>
       ) : null}
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+       {products.length ? (
+        <PaginationButton
+          pageCount={pageCount}
+          page={page}
+          per_page={per_page}
+          sort={sort}
+          createQueryString={createQueryString}
+        />
+      ) : null}
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         {products.map((product) => (
           <NewCard key={product.id} product={product} />
         ))}

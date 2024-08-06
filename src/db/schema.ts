@@ -36,6 +36,7 @@ export const products = mysqlTable("products", {
   id: serial("id").primaryKey(),
   name: varchar("name", { length: 191 }).notNull(),
   description: text("description"),
+  url: text("url"),
   images: json("images").$type<StoredFile[] | null>().default(null),
   category: mysqlEnum("category", [
     "2024",

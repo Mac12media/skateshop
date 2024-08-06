@@ -22,7 +22,7 @@ import { filterProductsAction } from "@/app/_actions/product"
 
 interface ProductGroup {
   category: Product["category"]
-  products: Pick<Product, "id" | "name" | "category">[]
+  products: Pick<Product, "id" | "name" | "url" |  "category">[]
 }
 
 export function ProductsCommandMenu() {
@@ -105,7 +105,7 @@ export function ProductsCommandMenu() {
           <CommandEmpty
             className={cn(isPending ? "hidden" : "py-6 text-center text-sm")}
           >
-            No products found.
+            No stores found.
           </CommandEmpty>
           {isPending ? (
             <div className="space-y-1 overflow-hidden px-1 py-2">
@@ -138,7 +138,7 @@ export function ProductsCommandMenu() {
                         className="mr-2 h-4 w-4 text-muted-foreground"
                         aria-hidden="true"
                       />
-                      <span className="truncate">{item.name}</span>
+                      <span className="truncate">{item.url}</span>
                     </CommandItem>
                   )
                 })}

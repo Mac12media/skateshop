@@ -15,6 +15,7 @@ import { StoreCard } from "@/components/cards/store-card"
 import { Icons } from "@/components/icons"
 import { Shell } from "@/components/shells/shell"
 import { NewCard } from "../../components/cards/new-card"
+import DynamicShopifyCount from "@/components/counter";
 
 export default async function IndexPage() {
   const someProducts = await db
@@ -22,13 +23,14 @@ export default async function IndexPage() {
       id: products.id,
       name: products.name,
       images: products.images,
+      url: products.url,
       category: products.category,
       price: products.price,
       inventory: products.inventory,
       stripeAccountId: stores.stripeAccountId,
     })
     .from(products)
-    .limit(8)
+    .limit(10)
     .leftJoin(stores, eq(products.storeId, stores.id))
     .groupBy(products.id)
     .orderBy(desc(stores.stripeAccountId), desc(products.createdAt))
@@ -86,26 +88,17 @@ export default async function IndexPage() {
         className="mx-auto flex w-full max-w-[64rem] flex-col items-center justify-center gap-4 py-12 text-center md:pt-32"
       >
         {githubStars ? (
-          <Link             href="/products"          target="_blank" rel="noreferrer">
-            <Badge
-              aria-hidden="true"
-              className="rounded-md px-3.5 py-1.5"
-              variant="secondary"
-            >
-              <Icons.shopify className="mr-2 h-3.5 w-3.5" aria-hidden="true" />
-              2,329,758 shopify stores
-            </Badge>
-            <span className="sr-only">GitHub</span>
-          </Link>
+                 <DynamicShopifyCount />
+
         ) : null}
         <Balancer
           as="h1"
           className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl"
         >
-          An e-commerce skateshop built with everything new in Next.js 13
+          Your Ultimate Source for Store Data & Insights
         </Balancer>
         <Balancer className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-          Buy and sell skateboarding gears from independent brands and stores
+        Explore, Analyze, and Understand Shopify Stores from
           around the world with ease
         </Balancer>
         <div className="flex flex-wrap items-center justify-center gap-4">
@@ -159,7 +152,7 @@ export default async function IndexPage() {
           </Balancer>
         </div>
         <div className="flex flex-col space-y-10">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {someProducts.length > 0 ? (
               someProducts.map((product) => (
                 <NewCard key={product.id} product={product} />
@@ -171,7 +164,7 @@ export default async function IndexPage() {
                   aria-hidden="true"
                 />
                 <div className="text-xl font-medium text-muted-foreground">
-                  No products found
+                  No stores found
                 </div>
                 <div className="text-sm text-muted-foreground">
                   Please try again later

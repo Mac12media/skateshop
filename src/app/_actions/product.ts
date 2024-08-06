@@ -32,12 +32,13 @@ export async function filterProductsAction(query: string) {
     .select({
       id: products.id,
       name: products.name,
+      url: products.url,
       category: products.category,
     })
     .from(products)
-    .where(like(products.name, `%${query}%`))
+    .where(like(products.url, `%${query}%`))
     .orderBy(desc(products.createdAt))
-    .limit(10)
+    .limit(16)
 
   const productsByCategory = Object.values(products.category.enumValues).map(
     (category) => ({

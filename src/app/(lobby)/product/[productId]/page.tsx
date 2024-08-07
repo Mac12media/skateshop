@@ -147,7 +147,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           },
         ]}
       />
-         <h1 className="inline-block w-full justify-end	 font-bold flex leading-tight">
+         <h1 className=" w-full justify-end	 font-bold flex leading-tight">
          {formatDate(product.createdAt!)}
         </h1> 
          
@@ -165,7 +165,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           {product.images ? "Active" : "Inactive"}
         </Badge>
         </div>
-        <h1 className="inline-block text-4xl font-bold flex leading-tight lg:text-5xl">
+        <h1 className="text-4xl font-bold flex leading-tight lg:text-5xl">
           {product.name}
          
         </h1>

@@ -29,7 +29,7 @@ export function generateMetadata({ params }: SubcategoryPageProps): Metadata {
   return {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
     title: toTitleCase(subcategory),
-    description: `Buy the best ${subcategory}`,
+    description: `Find stores from ${subcategory}`,
   }
 }
 
@@ -82,7 +82,7 @@ export default async function SubcategoryPage({
           {toTitleCase(unslugify(subcategory))}
         </PageHeaderHeading>
         <PageHeaderDescription size="sm">
-          {`Buy the best ${unslugify(subcategory)}`}
+          {`Find stores from ${unslugify(subcategory)}`}
         </PageHeaderDescription>
       </PageHeader>
       <Products

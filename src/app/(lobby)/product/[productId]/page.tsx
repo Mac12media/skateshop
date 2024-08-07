@@ -100,7 +100,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           inventory: products.inventory,
         })
         .from(products)
-        .limit(4)
+        .limit(5)
         .where(
           and(
             eq(products.storeId, product.storeId),
@@ -229,13 +229,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </Accordion>
               
 
-          {product.name} is an e-commerce website that was registered on {formatDate(product.createdAt!)}. The store is hosted on the Shopify platform. The publicly registered domain name for this store is {product.url}.
+          {product.name} is an e-commerce website that was registered on {formatDate(product.createdAt!)}. The publicly registered domain name for this store is {product.url}.
 
 The store collects payments in the {} currency, and uses the {} language setting for its website.
 
-It does not appear that the store owner has provided a contact email address. We recommend visiting the website directly for further details. You can also check out our FAQ for additional information.
-
-Note: This website, ShopHunt, is not affiliated with {product.name}. Please contact the store owner directly for any issues or questions pertaining to the online store.
+We recommend visiting the website directly for further details.
               
      
 
@@ -267,8 +265,7 @@ Note: This website, ShopHunt, is not affiliated with {product.name}. Please cont
       ) : null}
      
      
-     
-   
+     Note: This website, ShopHunt, is not affiliated with {product.name}
      
 
       

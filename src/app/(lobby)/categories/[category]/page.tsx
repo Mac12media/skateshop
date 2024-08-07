@@ -26,7 +26,7 @@ export function generateMetadata({ params }: CategoryPageProps): Metadata {
   return {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
     title: toTitleCase(params.category),
-    description: `Buy products from the ${params.category} category`,
+    description: `Find stores from ${params.category}`,
   }
 }
 
@@ -84,7 +84,7 @@ export default async function CategoryPage({
       >
         <PageHeaderHeading size="sm">{toTitleCase(category)}</PageHeaderHeading>
         <PageHeaderDescription size="sm">
-          {`Buy ${category} from the best stores`}
+          {`Find stores from ${category}`}
         </PageHeaderDescription>
       </PageHeader>
       <Products

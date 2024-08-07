@@ -33,11 +33,11 @@ export async function CategoryCard({ category }: CategoryCardProps) {
       href={`/categories/${category.title}`}
     >
       <Card className="relative h-full w-full overflow-hidden rounded-lg bg-transparent transition-colors hover:bg-muted">
-        <div className="absolute inset-0 z-10 bg-zinc-950/75" />
+        <div className="absolute inset-0 z-10 bg-card/75" />
         <CardHeader className="relative z-20">
         </CardHeader>
         <CardContent className="relative z-20">
-          <CardTitle className="text-xl capitalize text-zinc-200">
+          <CardTitle className="text-xl text-card-foreground capitalize ">
             {category.title}
           </CardTitle>
           <CardDescription>{productCount} stores</CardDescription>

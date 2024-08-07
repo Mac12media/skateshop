@@ -3,12 +3,12 @@ import { env } from "@/env.mjs"
 import { ClerkProvider } from "@clerk/nextjs"
 
 import "@/styles/globals.css"
+import { Analytics } from "@vercel/analytics/react"
 
 import { siteConfig } from "@/config/site"
 import { fontHeading, fontMono, fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { Toaster } from "@/components/ui/toaster"
-import { Analytics } from "@/components/analytics"
 import { ThemeProvider } from "@/components/providers"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 

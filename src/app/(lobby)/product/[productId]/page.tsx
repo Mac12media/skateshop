@@ -8,7 +8,7 @@ import { and, desc, eq, not } from "drizzle-orm"
 import './HtmlViewer.css'; // Import the CSS file
 
 
-import { cn, formatPrice, toTitleCase } from "@/lib/utils"
+import { cn, formatDate, formatPrice, toTitleCase } from "@/lib/utils"
 import {
   Accordion,
   AccordionContent,
@@ -23,6 +23,9 @@ import { ProductImageCarousel } from "@/components/product-image-carousel"
 import { Shell } from "@/components/shells/shell"
 import { NewCard } from "../../../../components/cards/new-card"
 import { Badge } from "@/components/ui/badge"
+import { ChevronLeftIcon } from "@radix-ui/react-icons"
+import { Button, buttonVariants } from "@/components/ui/button"
+import { AspectRatio } from "@/components/ui/aspect-ratio"
 
 interface ProductPageProps {
   params: {
@@ -62,6 +65,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
     columns: {
       id: true,
       name: true,
+      createdAt: true,
       url: true,
       description: true,
       price: true,
@@ -109,10 +113,24 @@ export default async function ProductPage({ params }: ProductPageProps) {
     const ids = `https://www.merchantgenius.io/previews/preview_page/${product.url}.html`
     const url = `https://${product.url}`
 
+
   return (
     
     <Shell>
-      <Breadcrumbs
+
+<Link
+        href="/blog"
+        className={cn(
+          buttonVariants({ variant: "ghost" }),
+          "absolute left-[-200px] top-14 hidden xl:inline-flex"
+        )}
+      >
+        <ChevronLeftIcon className="mr-2 h-4 w-4" aria-hidden="true" />
+        See all posts
+      </Link>
+      <div className="space-y-2">
+        <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+        <Breadcrumbs
         segments={[
           {
             title: "Stores",
@@ -129,7 +147,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
           },
         ]}
       />
-      <div className="relative w-1/2"> 
+         <h1 className="inline-block w-full justify-end	 font-bold flex leading-tight">
+         {formatDate(product.createdAt!)}
+        </h1> 
+         
+        </div>
+        <div className="relative "> 
       <Badge
           
           className={cn(
@@ -142,99 +165,113 @@ export default async function ProductPage({ params }: ProductPageProps) {
           {product.images ? "Active" : "Inactive"}
         </Badge>
         </div>
-      <div className="flex flex-col gap-8 md:flex-row md:gap-16">
-      
-        <Separator className="mt-4 md:hidden" />
-        <div className="flex w-full flex-col gap-4 md:w-1/2">
-        
-          <div className="space-y-2 gap-4 flex ">
-          <ProductImageCarousel
-          className="w-full md:w-1/2"
-          images={product.images ?? []}
-          options={{
-            loop: true,
-          }}
-        />
-            <h2 className="line-clamp-1 text-2xl font-bold">{product.name}</h2>
-           
-
-          </div>
+        <h1 className="inline-block text-4xl font-bold flex leading-tight lg:text-5xl">
+          {product.name}
          
-          {store ? (
-              <Link
-                href={`/products?store_ids=${store.id}`}
-                className="line-clamp-1 inline-block text-base text-muted-foreground hover:underline"
-              >
-                {store.name}
-              </Link>
-            ) : null}
-          <Separator className="my-1.5" />
-          <Link
+        </h1>
+        
+        {product.images ? (
+          <div className="flex items-center space-x-4 pt-4">
+            
+                <Link
+                  key={product.id}
+                  href={url}
+                  target="_blank"
+              rel="noreferrer"
+                  className="flex items-center space-x-2 text-sm"
+                >
+                  <img
+                    src={product.images[0]?.url}
+                    alt={product.name}
+                    width={130}
+                    height={130}
+                    className="rounded-2xl bg-white"
+                  />
+                  <div className="flex-1 text-left leading-tight">
+                    <p className="font-medium">{product.url}</p>
+                    <p className="text-[12px] text-muted-foreground">
+                      {product.description}
+                    </p>
+                  </div>
+                </Link>
+                
+          </div>
+        ) : null}
+      
+      </div>
+      
+<div className="flex gap-4">
+     
+            <Button type="submit"  className="flex items-center space-x-2 w-max	" size="sm">
+            <Link
               href={url}
               target="_blank"
               rel="noreferrer"
-              className="line-clamp-1 inline-block text-base text-muted-foreground hover:underline"
+              className=" text-base  hover:underline"
 
             >
               
-              {product.url}
+             {product.url}
             </Link>
-          <AddToCartForm productId={productId} />
-          <Separator className="mt-5" />
+         
+        </Button>
+            
+            </div>
+            
          
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="description">
               <AccordionTrigger>Description</AccordionTrigger>
               <AccordionContent>
                 {product.description ??
-                  "No description is available for this product."}
-              </AccordionContent>
+                  "No description is available for this product."} </AccordionContent>
             </AccordionItem>
           </Accordion>
-        </div>
-        
-      </div>
-      <div id="wrap">
-      <div className="hidelogo rounded-2xl">
-        <span className="shopPv">Shop Preview</span>
-      </div>
-      <div className="amp-iframe-wrappee ">
-        <iframe
-          width="1024"
-          height="768"
-          sandbox="allow-scripts"
-          frameBorder="0"
-          id="frame"
-          src={ids}
-          className="i-amphtml-element i-amphtml-layout-responsive rounded-2xl i-amphtml-layout-size-defined i-amphtml-built i-amphtml-layout"
-          style={{ width: '100%', overflow: "hidden", border: 'none',     pointerEvents: 'none'
-          }}
-          title="Shop Preview"
-        >
-          {/* Optional: Placeholder content if iframe fails to load */}
-          <p>Your browser does not support iframes.</p>
-        </iframe>
-      </div>
-    </div>
+              
+
+          {product.name} is an e-commerce website that was registered on {formatDate(product.createdAt!)}. The store is hosted on the Shopify platform. The publicly registered domain name for this store is {product.url}.
+
+The store collects payments in the {} currency, and uses the {} language setting for its website.
+
+It does not appear that the store owner has provided a contact email address. We recommend visiting the website directly for further details. You can also check out our FAQ for additional information.
+
+Note: This website, ShopHunt, is not affiliated with {product.name}. Please contact the store owner directly for any issues or questions pertaining to the online store.
+              
+     
 
       {store && otherProducts.length > 0 ? (
         <div className="overflow-hidden md:pt-6">
           <h2 className="line-clamp-1 flex-1 text-2xl font-bold">
-            More stores from {store.name}
+            More stores from <Link
+                href={`/products?store_ids=${store.id}`}
+                className="hover:underline"
+              >
+                {store.name}
+               
+              </Link>
           </h2>
-          <div className="overflow-x-auto pb-2 pt-6">
+          <div  style={{
+                   overflowWrap: 'anywhere'
+                  }}           className="overflow-x-auto  pb-2 pt-6">
             <div className="flex w-fit gap-4">
               {otherProducts.map((product) => (
                 <NewCard
                   key={product.id}
                   product={product}
                   className="min-w-[260px]"
-                />
+                      />
               ))}
             </div>
           </div>
         </div>
       ) : null}
+     
+     
+     
+   
+     
+
+      
       
     </Shell>
   )
